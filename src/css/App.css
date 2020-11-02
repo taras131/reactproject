@@ -1,0 +1,158 @@
+.app_wrapper{
+  display: grid;
+  width: 1140px;
+  margin: 0 auto;
+
+  grid-template-areas: 
+  "h h"
+  "n mc";
+
+  grid-template-rows: 150px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+ 
+}
+
+.header{
+  grid-area: h;
+  background-color: green;
+  border-radius: 4px;
+  padding: 20px;
+  background: radial-gradient(at top, #FEFFFF, #A7CECC);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header img{
+  width: 40px;
+}
+
+.header .title h1{
+  font-size: 25px;
+  text-align: center;
+  color:  #800080;
+}
+
+.header .title h2{
+  font-size: 15px;
+  text-align: right;
+  color:  #800080;
+}
+
+.header .account a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav{
+  grid-area: n;
+  background-color: green;
+  border-radius: 4px;
+  background: radial-gradient(at top, #FEFFFF, #A7CECC);
+ 
+}
+
+.nav .nav_item {
+  text-decoration: none;
+  font-size: 20px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid;
+  border-color:#FFFAF0;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.nav .nav_item a {
+  text-decoration: none;
+  color: #800080;
+}
+
+.nav #last_button {
+  margin-top: 250px;
+  border-top: solid;
+  border-color:#FFFAF0;
+}
+
+.mypage{
+  grid-area: mc;
+  background-color: #d9d7d7;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.mypage img{
+  width: 100%;
+  border-radius: 4px;
+}
+
+.mypage .ava{
+  margin-top: 10px;
+  display: grid;
+  grid-template-areas: 
+  "im ad";
+
+  grid-template-rows: 170px;
+  grid-template-columns: 3fr 8fr;
+  grid-gap: 10px;
+}
+
+.mypage .ava img{
+  grid-area: im;
+  border-radius: 4px;
+}
+
+.mypage .ava .ava_discription{
+  grid-area: ad;
+  font-size: 20px
+}
+
+.mypage .post {
+  margin: 0 auto;
+}
+.mypage .post h2 {
+  color:  #800080;
+  margin-top: 25px;
+}
+
+.mypage .post .newpost {
+  display: block;
+  margin: 0 auto;
+}
+
+.mypage .post .newpost input {
+  width: 99%;
+  height: 100px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 4px;
+}
+
+.mypage .post .newpost button {
+  display: block;
+  width: 150px;
+  height: 70px;
+  position: relative;
+  right: 0px;
+  margin-top: 7px;
+  border-radius: 4px;
+  background-color: #800080;
+  color:#fff;
+  border: none;
+  box-shadow: 0 0 5px;
+  margin-left: 777px;;
+}
+
+.mypage .post .post_item {
+  padding: 8px;
+  display: block;
+  width: 98%;
+  min-height: 25px;
+  margin-top: 15px;
+  background-color: #ebe8e8;
+  border: none;
+  border-radius: 4px;
+}
