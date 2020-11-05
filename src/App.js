@@ -1,17 +1,39 @@
 import React from "react";
 import "./css/App.css";
-import Header from "./components/Header.jsx";
-import Navigation from "./components/Navigation.jsx";
-import Mypage from "./components/Mypage.jsx";
+import Header from "./components/header/Header.jsx";
+import Navigation from "./components/navigation/Navigation.jsx";
+import Mypage from "./components/mypage/Mypage.jsx";
+import Dialogs from "./components/dialogs/Dialogs";
+import News from "./components/news/News";
+import Music from "./components/music/Music";
+import Setting from "./components/setting/Setting"
+
+import { BrowserRouter, Route } from "react-router-dom";
 
 
- const App = () =>  {
+
+ const App = (props) =>  {
   return (
-    <div className = "app_wrapper">
-      <Header/>
-      <Navigation/>
-      <Mypage/>
-    </div>
+    <BrowserRouter>
+      <div className = "app_wrapper">
+        <Header />
+        <Navigation sitebarInformation ={props.state.sitebarInformation} />
+        <div className = "app_wrapper_content">
+			  
+        <Route path ="/profile" render = { () => <Mypage 
+        profileInformation = {props.state.profileInformation}
+        addPost = {props.addPost} />}  />
+        
+        <Route path ="/dialogs" render = { () => <Dialogs 
+        messagesInformation = {props.state.messagesInformation} 
+        addMessage = {props.addMessage} />}  />
+
+          	<Route path ="/news" component = {News} />
+          	<Route path ="/music" component = {Music} />
+          	<Route path ="/setting" component = {Setting} />
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
