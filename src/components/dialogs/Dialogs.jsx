@@ -5,10 +5,11 @@ import Message_items from "./messages_items/Message_items";
 const Dialogs = (props) => {
     return (
         <div className = {style.dialogs}>
-            <Dialogs_items dialogsData ={props.messagesInformation.dialogsData} />
-            <Message_items messagesData ={props.messagesInformation.messagesData} addMessage = {props.addMessage} />
+            <Dialogs_items dialogsData = {props.messagesInformation.dialogsData} />
+            <Message_items messagesInformation = {props.messagesInformation} 
+                           dispatch = {props.dispatch} />
         </div>
-    )
+    );
 }
 
 export default Dialogs;

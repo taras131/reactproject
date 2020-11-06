@@ -9,7 +9,8 @@ const Mypage = (props) =>{
         <div className = {style.mypage}>
             <Screen/>  
             <Ava/>
-            <Post postData = {props.profileInformation.postData} addPost = {props.addPost} />
+            <Post profileInformation = {props.profileInformation} 
+                  dispatch = {props.dispatch} />
         </div>
     );
 }

@@ -6,14 +6,16 @@ const Newmessage = (props) =>{
     const newMessageElement = React.createRef();
 
     const postNewMessage = () => {
-        let text = newMessageElement.current.value;
-        props.addMessage(text);
-        newMessageElement.current.value = ``;
+        props.dispatch({type: "ADDMESSAGE" });
+    }
+
+    const input = () => {
+        props.dispatch({type: "MESSAGEINPUT", messageimput: newMessageElement.current.value })
     }
 
     return (
         <div className = {style.newmessage}>
-            <input ref = {newMessageElement} /> 
+            <input onChange = {input} ref = {newMessageElement} value = {props.inputValue}  /> 
             <button onClick= {postNewMessage} >Отправить</button>
         </div>
     );

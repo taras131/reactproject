@@ -4,14 +4,14 @@ import Newmessage from "./newmessage/Newmessage";
 
 const Message_items = (props) =>{
 
-    let messagesElements = props.messagesData.map(item => <Message_item text = {item.text} count = {item.likescount} />);
+    let messagesElements = props.messagesInformation.messagesData.map(item => <Message_item text = {item.text} count = {item.likescount} />);
  
     return (
         <div className = {style.messages}>
             <div>
                 {messagesElements}
             </div>
-           <Newmessage addMessage = {props.addMessage} />
+           <Newmessage dispatch = {props.dispatch} inputValue = {props.messagesInformation.inputValue} />
         </div>
     );
 }
