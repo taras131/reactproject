@@ -3,19 +3,18 @@ import style from "./Newmessage.module.css";
 
 const Newmessage = (props) =>{
 
-    const newMessageElement = React.createRef();
-
     const postNewMessage = () => {
-        props.dispatch({type: "ADDMESSAGE" });
+        props.postNewMessage();
     }
 
-    const input = () => {
-        props.dispatch({type: "MESSAGEINPUT", messageimput: newMessageElement.current.value })
+    const input = (e) => {
+        let body = e.target.value;
+        props.input(body);
     }
 
     return (
         <div className = {style.newmessage}>
-            <input onChange = {input} ref = {newMessageElement} value = {props.inputValue}  /> 
+            <input onChange = {input} value = {props.inputValue}  /> 
             <button onClick= {postNewMessage} >Отправить</button>
         </div>
     );

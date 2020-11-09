@@ -1,7 +1,7 @@
 import React from "react";
 import Screen from "./screen/Screen";
 import Ava from "./ava/Ava";
-import Post from "./post/Post";
+import PostContainer from "./post/PostContainer";
 import style from "./Mypage.module.css";
 
 const Mypage = (props) =>{
@@ -9,8 +9,7 @@ const Mypage = (props) =>{
         <div className = {style.mypage}>
             <Screen/>  
             <Ava/>
-            <Post profileInformation = {props.profileInformation} 
-                  dispatch = {props.dispatch} />
+            <PostContainer />
         </div>
     );
 }

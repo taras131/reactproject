@@ -1,4 +1,7 @@
 import React from "react";
+import profileReducer from "./profileReducer";
+import messagesReducer from "./messagesReducer";
+import sitebarReducer from "./sitebarReducer";
 
 let store = {
 	_state: {
@@ -8,7 +11,7 @@ let store = {
 				{id: 2, name:"Taras", text: "Это мой второй пост", likescount: 700 },
 				{id: 3, name:"Taras", text: "это я запостил из индекс js, прокинув пропс через Route!!! ", likescount: 500 }
 			],
-			inputValue : ``
+			inputValue : `defadddd`
 		},
 	
 		messagesInformation: {
@@ -27,7 +30,7 @@ let store = {
 				{id: 4, text: "я скучаю", likescount: 7},
 				{id: 5, text: "ты негодяй!", likescount: 4}
 			],
-			inputValue : ``			
+			inputValue : `rgdg`			
 		},
 	
 		sitebarInformation: {
@@ -46,45 +49,21 @@ let store = {
 		console.log(`1`);
 	},
 
-	dispatch(action) {
-		if (action.type === "ADDPOST"){
-			let newPost = {
-				id:11,
-				text: this._state.profileInformation.inputValue,
-				likescount: 0
-			}
-			this._state.profileInformation.postData.push(newPost);
-			this._state.profileInformation.inputValue = ``;			
-			this._reRenderDOM(store._state);
-		} else if (action.type === "INPUTPOST") {
-					this._state.profileInformation.inputValue = action.postimput;
-					this._reRenderDOM(store._state);	
-				} else if(action.type === "ADDMESSAGE"){
-							let newMessage = {
-								id:5,
-								text: this._state.messagesInformation.inputValue,
-								likescount: 0
-							}
-							this._state.messagesInformation.messagesData.push(newMessage);
-							this._state.messagesInformation.inputValue = ``;
-							this._reRenderDOM(store._state);
-							} else if(action.type === "MESSAGEINPUT") {
-										this._state.messagesInformation.inputValue = action.messageimput;
-										this._reRenderDOM(store._state);	
-							        }
-	},
-
-	getState() {
-		return this._state;
-	},
-
 	suscribe(observer) {
 		store._reRenderDOM = observer;
 	},
 
+	dispatch(action) {
+		this._state.profileInformation = profileReducer( this._state.profileInformation, action );
+		this._state.messagesInformation = messagesReducer(this._state.messagesInformation, action );
+		this._state.sitebarInformation = sitebarReducer(this._state.sitebarInformation, action );
+
+		this._reRenderDOM(this._state);
+	},
+
+	getState() {
+		return this._state;
+	}
 }
 
 
-
-
-export default store;

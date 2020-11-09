@@ -6,19 +6,17 @@ const Newpost = (props) => {
     const newPostElement = React.createRef();
 
     const addPost = () => {
-        props.dispatch({type: "ADDPOST"});
+        props.addPost();
     };
 
     const input = () => {
-        props.dispatch({
-            type: "INPUTPOST",
-            postimput: (newPostElement.current.value )
-        });
+        let text = newPostElement.current.value;
+        props.input(text);
     };
 
     return (
         <div className = {style.newpost}>
-            <input onChange = {input} ref ={newPostElement} value = {props.profileInformation.inputValue} /> 
+            <input onChange = {input} ref ={newPostElement} value = {props.value} /> 
             <button onClick = {addPost}>Опубликовать</button>
         </div>
     );
